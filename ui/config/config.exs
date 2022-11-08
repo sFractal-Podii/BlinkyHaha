@@ -12,7 +12,8 @@ config :ui, UiWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "sXlgjVd4kxCtbe/K01rO8S4SmgfsARUYOVvd2BrEvY3OaSjeJaZr9RK8jWKqNbBS",
   render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: Ui.PubSub
+  # pubsub: [name: Ui.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -21,6 +22,15 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.14.14",
+  default: [
+    args: ~w(js/app.js --bundle --target=es2016 --outdir=../priv/static/assets),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
