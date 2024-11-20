@@ -5,7 +5,7 @@ defmodule Ui.MixProject do
     [
       app: :ui,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.17.3",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,

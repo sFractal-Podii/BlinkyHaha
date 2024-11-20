@@ -9,7 +9,7 @@ defmodule Firmware.MixProject do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.10",
+      elixir: "~> 1.17.3",
       archives: [nerves_bootstrap: "~> 1.8"],
       start_permanent: Mix.env() == :prod,
       build_embedded: true,
