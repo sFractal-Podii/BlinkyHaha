@@ -9,7 +9,7 @@ defmodule Firmware.MixProject do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.10",
+      elixir: "~> 1.17.3",
       archives: [nerves_bootstrap: "~> 1.8"],
       start_permanent: Mix.env() == :prod,
       build_embedded: true,
@@ -39,23 +39,23 @@ defmodule Firmware.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.6.3", runtime: false},
-      {:shoehorn, "~> 0.6"},
-      {:ring_logger, "~> 0.8"},
-      {:toolshed, "~> 0.2"},
+      {:nerves, "~> 1.11.2", runtime: false},
+      {:shoehorn, "~> 0.9.2"},
+      {:ring_logger, "~> 0.11.3"},
+      {:toolshed, "~> 0.4.1"},
       {:ui, path: "../ui"},
 
       # Dependencies for all targets except :host
-      {:nerves_runtime, "~> 0.11", targets: @all_targets},
-      {:nerves_pack, "~> 0.3", targets: @all_targets},
+      {:nerves_runtime, "~> 0.13.7", targets: @all_targets},
+      {:nerves_pack, "~> 0.7.1", targets: @all_targets},
       {:blinkchain, "~> 1.0.0", targets: @all_targets},
 
       # Dependencies for specific targets
-      {:nerves_system_rpi, "~> 1.12", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.12", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi3, "~> 1.12", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.12", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.12", runtime: false, targets: :rpi4}
+      {:nerves_system_rpi, "~> 1.28.1", runtime: false, targets: :rpi},
+      {:nerves_system_rpi0, "~> 1.28.1", runtime: false, targets: :rpi0},
+      {:nerves_system_rpi3, "~> 1.28.1", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a, "~> 1.28.1", runtime: false, targets: :rpi3a},
+      {:nerves_system_rpi4, "~> 1.28.1", runtime: false, targets: :rpi4}
     ]
   end
 
